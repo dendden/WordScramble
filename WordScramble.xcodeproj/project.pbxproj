@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		082AFBAE1DDDF2890041FDF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082AFBAD1DDDF2890041FDF0 /* AppDelegate.swift */; };
-		082AFBB01DDDF2890041FDF0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082AFBAF1DDDF2890041FDF0 /* ViewController.swift */; };
 		082AFBB31DDDF2890041FDF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 082AFBB11DDDF2890041FDF0 /* Main.storyboard */; };
 		082AFBB51DDDF2890041FDF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 082AFBB41DDDF2890041FDF0 /* Assets.xcassets */; };
 		082AFBB81DDDF2890041FDF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 082AFBB61DDDF2890041FDF0 /* LaunchScreen.storyboard */; };
+		082AFBC01DDDF2E40041FDF0 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082AFBBF1DDDF2E40041FDF0 /* TableViewController.swift */; };
+		082AFBC21DDDF41E0041FDF0 /* start.txt in Resources */ = {isa = PBXBuildFile; fileRef = 082AFBC11DDDF41E0041FDF0 /* start.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		082AFBAA1DDDF2890041FDF0 /* WordScramble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordScramble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		082AFBAD1DDDF2890041FDF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		082AFBAF1DDDF2890041FDF0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		082AFBB21DDDF2890041FDF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		082AFBB41DDDF2890041FDF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		082AFBB71DDDF2890041FDF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		082AFBB91DDDF2890041FDF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		082AFBBF1DDDF2E40041FDF0 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		082AFBC11DDDF41E0041FDF0 /* start.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = start.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +57,12 @@
 			isa = PBXGroup;
 			children = (
 				082AFBAD1DDDF2890041FDF0 /* AppDelegate.swift */,
-				082AFBAF1DDDF2890041FDF0 /* ViewController.swift */,
+				082AFBBF1DDDF2E40041FDF0 /* TableViewController.swift */,
 				082AFBB11DDDF2890041FDF0 /* Main.storyboard */,
 				082AFBB41DDDF2890041FDF0 /* Assets.xcassets */,
 				082AFBB61DDDF2890041FDF0 /* LaunchScreen.storyboard */,
 				082AFBB91DDDF2890041FDF0 /* Info.plist */,
+				082AFBC11DDDF41E0041FDF0 /* start.txt */,
 			);
 			path = WordScramble;
 			sourceTree = "<group>";
@@ -125,6 +128,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				082AFBB81DDDF2890041FDF0 /* LaunchScreen.storyboard in Resources */,
+				082AFBC21DDDF41E0041FDF0 /* start.txt in Resources */,
 				082AFBB51DDDF2890041FDF0 /* Assets.xcassets in Resources */,
 				082AFBB31DDDF2890041FDF0 /* Main.storyboard in Resources */,
 			);
@@ -137,8 +141,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				082AFBB01DDDF2890041FDF0 /* ViewController.swift in Sources */,
 				082AFBAE1DDDF2890041FDF0 /* AppDelegate.swift in Sources */,
+				082AFBC01DDDF2E40041FDF0 /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
