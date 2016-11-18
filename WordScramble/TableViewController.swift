@@ -13,6 +13,7 @@ class TableViewController: UITableViewController {
     
     var allWords = [String]()
     var usedWords = [String]()
+    let defaultWords = ["silkworm", "pathfind", "pinoccio", "longnose", "pigtails"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +23,11 @@ class TableViewController: UITableViewController {
         if let startWordsPath = Bundle.main.path(forResource: "start", ofType: "txt") {
             if let startWords = try? String(contentsOfFile: startWordsPath) {
                 allWords = startWords.components(separatedBy: "\n")
+            } else {
+                loadDefaultWords()
             }
         } else {
-            allWords = ["silkworm"]
+            loadDefaultWords()
         }
 
         // Uncomment the following line to preserve selection between presentations
@@ -39,6 +42,13 @@ class TableViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func loadDefaultWords() {
+        allWords = defaultWords
+        let ac = UIAlertController(title: "Limited gameplay", message: "A problem occured while loading words, your game is limited to 5 default words", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Whatever", style: .default))
+        present(ac, animated: true)
     }
     
     func startGame() {
