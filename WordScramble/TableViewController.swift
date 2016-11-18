@@ -14,11 +14,14 @@ class TableViewController: UITableViewController {
     var allWords = [String]()
     var usedWords = [String]()
     let defaultWords = ["silkworm", "pathfind", "pinoccio", "longnose", "pigtails"]
+    
+    var round = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(promptForAnswer))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(nextRound))
         
         if let startWordsPath = Bundle.main.path(forResource: "start", ofType: "txt") {
             if let startWords = try? String(contentsOfFile: startWordsPath) {
@@ -53,7 +56,12 @@ class TableViewController: UITableViewController {
     
     func startGame() {
         allWords = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: allWords) as! [String]
-        title = allWords[0]
+        title = allWords[round]
+    }
+    
+    func nextRound() {
+        round += 1
+        title = allWords[round]
         usedWords.removeAll(keepingCapacity: true)
         tableView.reloadData()
     }
