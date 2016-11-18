@@ -71,12 +71,22 @@ class TableViewController: UITableViewController {
         if isPossible(word: lowerAnswer) {
             if isUnique(word: lowerAnswer) {
                 if isReal(word: lowerAnswer) {
-                    usedWords.insert(lowerAnswer, at: 0)
-                    
-                    let indexPath = IndexPath(row: 0, section: 0)
-                    tableView.insertRows(at: [indexPath], with: .automatic)
-                    
-                    return
+                    if isLongEnough(word: lowerAnswer) {
+                        if isNotTitleWord(word: lowerAnswer) {
+                            usedWords.insert(lowerAnswer, at: 0)
+                            
+                            let indexPath = IndexPath(row: 0, section: 0)
+                            tableView.insertRows(at: [indexPath], with: .automatic)
+                            
+                            return
+                        } else {
+                            errorTitle = "Invalid word"
+                            errorMsg = "You can't repeat title word!"
+                        }
+                    } else {
+                        errorTitle = "Word too short"
+                        errorMsg = "Provide a word that is more than 3 characters!"
+                    }
                 } else {
                     errorTitle = "Incorrect word"
                     errorMsg = "There's no such word in English!"
@@ -120,7 +130,13 @@ class TableViewController: UITableViewController {
         return misspelledRange.location == NSNotFound
     }
     
+    func isLongEnough(word: String) -> Bool {
+        return word.characters.count > 3
+    }
     
+    func isNotTitleWord(word: String) -> Bool {
+        return word != title!.lowercased()
+    }
     
     func showErrorMessage(title: String, msg: String) {
         let ac = UIAlertController(title: title, message: msg, preferredStyle: .alert)
