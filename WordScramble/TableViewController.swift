@@ -65,6 +65,9 @@ class TableViewController: UITableViewController {
     func submit(answer: String) {
         let lowerAnswer = answer.lowercased()
         
+        let errorTitle: String
+        let errorMsg: String
+        
         if isPossible(word: lowerAnswer) {
             if isUnique(word: lowerAnswer) {
                 if isReal(word: lowerAnswer) {
@@ -72,16 +75,30 @@ class TableViewController: UITableViewController {
                     
                     let indexPath = IndexPath(row: 0, section: 0)
                     tableView.insertRows(at: [indexPath], with: .automatic)
+                    
+                    return
+                } else {
+                    errorTitle = "Incorrect word"
+                    errorMsg = "There's no such word in English!"
                 }
+            } else {
+                errorTitle = "Word repeat"
+                errorMsg = "You've already submitted this word"
             }
+        } else {
+            errorTitle = "Invalid word"
+            errorMsg = "This word can't be scrambled from \(title!.lowercased())!"
         }
+        
+        showErrorMessage(title: errorTitle, msg: errorMsg)
     }
     
     //Word checking methods:
-    func isPossible(word: String) -> Bool {
+    func isUnique(word: String) -> Bool {
         return !usedWords.contains(word)
     }
-    func isUnique(word: String) -> Bool {
+    
+    func isPossible(word: String) -> Bool {
         var tempWord = title!.lowercased()
         
         for letter in word.characters {
@@ -94,12 +111,21 @@ class TableViewController: UITableViewController {
         
         return true
     }
+    
     func isReal(word: String) -> Bool {
         let checker = UITextChecker()
         let range = NSMakeRange(0, word.utf16.count)
         let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
         
         return misspelledRange.location == NSNotFound
+    }
+    
+    
+    
+    func showErrorMessage(title: String, msg: String) {
+        let ac = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Try again", style: .default))
+        present(ac, animated: true)
     }
     
     // MARK: - Table view data source
